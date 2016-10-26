@@ -38,7 +38,7 @@ class CampaignController extends Controller
 //            'body' => 'required', // 必填
 //        ]);
 //
-//        // 通过 Article Model 插入一条数据进 articles 表
+//        // 通过 Article Model 插入一条数据进 articles
 //        $article = new Article; // 初始化 Article 对象
 //        $article->title = $request->get('title'); // 将 POST 提交过了的 title 字段的值赋给 article 的 title 属性
 //        $article->body = $request->get('body'); // 同上
