@@ -1,47 +1,108 @@
-@extends('layouts.app')
-<style>
-    label {
-        display: block;
-        margin-bottom: 5px;
-        color: #333333;
-    }
-</style>
-@section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-                <div class="panel panel-default">
-                    <div class="panel-heading">编辑组织</div>
-                    <div class="panel-body">
+<!DOCTYPE html>
+<html lang="en">
 
-                        @if (count($errors) > 0)
-                            <div class="alert alert-danger">
-                                <strong>编辑失败</strong> 输入不符合要求<br><br>
-                                {!! implode('<br>', $errors->all()) !!}
-                            </div>
-                        @endif
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="/newproject/public/materialize/css/materialize.css">
+    <link rel="stylesheet" href="/newproject/public/css/edit.css">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-                        <form action="{{ url('contact/'.$contact->id) }}" method="POST">
-                            {{ method_field('PATCH') }}
-                            {{ csrf_field() }}
-                            <label>姓：</label><input type="text" name="first_name" class="form-control" required="required" value="{{$contact->first_name}}" >
-                            <br>
-                            <label>名：</label><input type="text" name="last_name" class="form-control" required="required" value="{{$contact->last_name}}">
-                            <br>
-                            <label>头衔：</label><input type="text" name="title" class="form-control" required="required" value="{{$contact->title}}">
-                            <br>
-                            <label>相关组织id：</label><input type="text" name="organization_id" class="form-control" required="required" value="{{$contact->organization_id}}">
-                            <br>
-                            <label>邮件：</label><input type="text" name="email" class="form-control" required="required" value="{{$contact->email}}">
-                            <br>
-                            <label>电话：</label><input type="text" name="office_phone" class="form-control" required="required" value="{{$contact->office_phone}}">
-                            <br>
-                            <button class="btn btn-lg btn-info">提交修改</button>
-                        </form>
+<body>
+<div>展示 插入数据后可以</div>
+<div class="edit_item">
+    <span type="text" id="first_namex">test</span>
+</div>
+<div class="edit_item">
+    <span type="text" id="campagin_typex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="campagin_statusx"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="campagin_namex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="created_timex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="modified_timex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="target_audiencex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="expected_close_datax"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="producr_idx"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="num_userx" ></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="budget_costx"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="actual_costx"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="expected_responsex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="expected_revenuex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="expected_roix"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="actual_roix"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="updatex"></span>
+</div>
+<div class="edit_item">
+    <span type="text" id="assign_tox"></span>
+</div>
 
-                    </div>
-                </div>
-            </div>
+<form action="{{ URL('contact/'.$contact->id) }}" method="POST">
+    <input name="_method" type="hidden" value="PUT">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <button id="edit_sub" >提交点我提交</button>
+    <div id="edit_field">
+        <div class="edit_item">
+            <p>first_name:</p> <input type="text" id="first_name" name="first_name" value="{{$contact->first_name}}" />
         </div>
+        <div class="edit_item">
+            <p>last_name:</p>  <input type="text" id="last_name" name="last_name" value="{{$contact->last_name}}" />
+        </div>
+        <div class="edit_item">
+            <p>title:</p> <input type="text" id="title"name="title"  value="{{$contact->title}}" />
+        </div>
+        <div class="edit_item">
+            <p>email:</p> <input type="text" id="email" name="email" value="{{$contact->email}}" />
+        </div>
+        <div class="edit_item">
+            <p>organization:</p> <input type="text" id="organization"name="organization"  value="{{$contact->organizationId}}" />
+        </div>
+        <div class="edit_item">
+            <p>office_phone:</p> <input type="text" id="office_phone"name="office_phone" value="{{$contact->office_phone}}" />
+        </div>
+
     </div>
-@endsection
+</form>
+
+<form action="{{ URL('contact/'.$contact->id) }}" method="POST" style="display: inline;">
+    <input name="_method" type="hidden" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <button type="submit" class="btn btn-danger">删除</button>
+</form>
+
+
+<script type="text/javascript" src="/newproject/public/js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="/newproject/public/materialize/js/materialize.js"></script>
+<script type="text/javascript" src="/newproject/public/js/edit.js"></script>
+</body>
+
+</html>

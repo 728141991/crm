@@ -1,0 +1,110 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", "微软雅黑", "Microsoft YaHei", "冬青黑体", "Hiragino Sans GB", "华文细黑", "STXihei", "文泉驿微米黑", "WenQuanYi Micro Hei", sans-serif;
+}
+
+.input-field {
+    margin-top: 0;
+}
+
+.btn:hover,
+.btn-large:hover {
+    background-color: #6DACEB;
+}
+
+.btn {
+    background-color: #6DACEB;
+    padding: 0 13px;
+}
+
+header {
+    display: -ms-flexbox;
+    display: flex;
+    background-color: #1B1E32;
+    box-shadow: 0 2px 4px 0 #888888;
+}
+
+#head_icon {
+    background-color: #1B1E32;
+    -ms-flex: 0 1 40px;
+    flex: 0 1 40px;
+    padding: 12px 15px;
+}
+
+.head_tag {
+    font-family: '微软雅黑';
+    font-size: 15px;
+    color: #F2F2F2;
+    background-color: #1B1E32;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    padding: 12px 15px;
+}
+
+.head_tag:nth-child(2) {
+    color: #1B1E32;
+    background-color: #6DACEB;
+}
+
+.head_tag:hover {
+    color: #1B1E32;
+    cursor: pointer;
+    background-color: #6DACEB;
+}
+
+footer {
+    padding: 5px 0;
+    height: 25px;
+    text-align: center;
+    font-size: 15px;
+    background-color: #1B1E32;
+}
+
+
+/*item_list相关css*/
+
+.item_list {
+    margin: 20px 30px;
+}
+
+#item_title,
+#item_search,
+.item {
+    display: -ms-flexbox;
+    display: flex;
+    padding: 5px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+#item_title>div,
+#item_search>div,
+.item>div {
+    flex: 0 1 160px;
+}
+
+#item_title>div:nth-child(1),
+#item_search>div:nth-child(1),
+.item>div:nth-child(1) {
+    padding-left: 15px;
+    flex: 0 1 190px;
+}
+
+#item_search>div {
+    padding-right: 30px;
+}
+
+.all_btn>a {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.search_btn {
+    margin-right: 10px;
+}
+
+.clear_btn {
+    margin-left: 10px;
+}

@@ -4,10 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class campaign extends Model
+class Campaign extends Model
 {
-    protected $fillable = ['id', 'campaign_name', 'campaign_type', 'campaign_status', 'created_time','modified',
-        'target_audience','budget_cost','actual_cost'];
-
     //
+    public function activity(){  return $this->hasMany('app/Activity');  }
+    public function contact(){  return $this->belongsToMany('app/Contact');  }
+    public function lead(){  return $this->belongsToMany('app/Lead');  }
+    //???
+    public function opportunity(){  return $this->belongsTo('app/Opportunity');  }
+    public function organization(){  return $this->belongsToMany('app/Organization');  }
+    public function user(){  return $this->belongsTo('app/User');  }
 }
