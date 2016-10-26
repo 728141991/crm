@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\CRM;
 
-use App\Article;
 use App\organization;
 use Illuminate\Http\Request;
 

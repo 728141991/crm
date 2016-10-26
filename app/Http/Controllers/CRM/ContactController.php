@@ -30,7 +30,7 @@ class ContactController extends Controller
     public function edit($id){
         return view('contact/edit')->withContact(contact::find($id));
     }
-    //该函数用来存储，对应/campaign的post
+    //该函数用来存储，对应/contact的post
     public function store(Request $request){
 //        // 数据验证
 //        $this->validate($request, [
