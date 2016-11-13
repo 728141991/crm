@@ -4,19 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Contact</title>
-<<<<<<< HEAD
-    <link rel="stylesheet" href="/crm/public/materialize/css/materialize.css">
-    <link rel="stylesheet" href="/crm/public/css/edit.css">
-=======
     <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/edit.css')}}">
->>>>>>> panshan
     <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
-<<<<<<< HEAD
 <div>展示 插入数据后可以</div>
 <div class="edit_item">
     <span type="text" id="first_namex">test</span>
@@ -73,86 +67,55 @@
     <span type="text" id="assign_tox"></span>
 </div>
 
-<form action="{{ URL('contact') }}" method="POST">
-
+<form action="{{ URL('product/'.$product->id) }}" method="POST">
+    <input name="_method" type="hidden" value="PUT">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <button id="edit_sub" >提交点我提交</button>
     <div id="edit_field">
         <div class="edit_item">
-            <p>first_name:</p> <input type="text" id="first_name" name="first_name" />
+            <p>name:</p> <input type="text" id="product_name" name="product_name" value="{{$product->product_name}}" />
         </div>
         <div class="edit_item">
-            <p>last_name:</p>  <input type="text" id="last_name" name="last_name"  />
+            <p>code:</p>  <input type="text" id="code" name="product_code" value="{{$product->product_code}}"/>
         </div>
         <div class="edit_item">
-            <p>title:</p> <input type="text" id="title"name="title"   />
+            <p>description:</p> <input type="text" id="description" name="product_description" value="{{$product->product_description}}"  />
         </div>
         <div class="edit_item">
-            <p>email:</p> <input type="text" id="email" name="email"/>
+            <p>part number:</p> <input type="text" id="part_number" name="part_number" value="{{$product->part_number}}"/>
         </div>
         <div class="edit_item">
-            <p>organization:</p> <input type="text" id="organization"name="organization"   />
+            <p>unit price:</p> <input type="text" id="unit_price" name="unit_price" value="{{$product->unit_price}}"/>
         </div>
         <div class="edit_item">
-            <p>office_phone:</p> <input type="text" id="office_phone"name="office_phone"  />
+            <p>commission rate:</p> <input type="text" id="commission_rate" name="commission_rate" value="{{$product->commission_rate}}"/>
+        </div>
+        <div class="edit_item">
+            <p>quantity per unit:</p> <input type="text" id="qty_per_unit" name="qty_per_unit" value="{{$product->qty_per_unit}}"/>
+        </div>
+        <div class="edit_item">
+            <p>weight:</p> <input type="text" id="weight" name="weight" value="{{$product->weight}}"/>
+        </div>
+        <div class="edit_item">
+            <p>sales start date:</p> <input type="text" id="sales start date" name="sales_start_date" value="{{$product->sales_start_date}}"/>
+        </div>
+        <div class="edit_item">
+            <p>sales end date:</p> <input type="text" id="sales end date" name="sales_end_date" value="{{$product->sales_end_date}}"/>
         </div>
 
     </div>
 </form>
 
-<div>编辑</div>
-
-
-<script type="text/javascript" src="/crm/public/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="/crm/public/materialize/js/materialize.js"></script>
-<script type="text/javascript" src="/crm/public/js/edit.js"></script>
-=======
-<header>
-    <div id="head_icon">icon</div>
-    <a class="head_tag" href="{{url('/home')}}">主页</a>
-    <a class="head_tag" id="contact" href="{{url('/contact')}}">联系人</a>
-    <a class="head_tag" href="{{url('/organization')}}">组织</a>
-    <a class="head_tag" href="{{url('/lead')}}">领导</a>
-    <a class="head_tag" href="{{url('/product')}}">产品</a>
-    <a class="head_tag" href="{{url('/campaign')}}">计划</a>
-    <a class="head_tag" href="{{url('/opportunity')}}">机会</a>
-    <a class="head_tag" href="{{url('/activity')}}">备忘录</a>
-    <a class="head_tag" href="{{url('/document')}}">文件</a>
-    <a class="head_tag" href="{{url('/ticket')}}">票务</a>
-</header>
-<form action="{{ URL('contact') }}" method="POST">
-
+<form action="{{ URL('product/'.$product->id) }}" method="POST" style="display: inline;">
+    <input name="_method" type="hidden" value="DELETE">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <div id="edit_field" class="card">
-        <div class="edit_item">
-            <input type="text" id="first_name" name="first_name" placeholder="first name"/>
-        </div>
-        <div class="edit_item">
-            <input type="text" id="last_name" name="last_name" placeholder="last name"/>
-        </div>
-        <div class="edit_item">
-            <input type="text" id="title"name="title"  placeholder="title"/>
-        </div>
-        <div class="edit_item">
-            <input type="text" id="email" name="email" placeholder="email"/>
-        </div>
-
-        <div class="edit_item">
-            <input type="text" id="organization"name="organization_name" placeholder="organization"/>
-        </div>
-        <div class="edit_item">
-          <input type="text" id="office_phone"name="office_phone" placeholder="office phone"/>
-        </div>
-        <button class="waves-effect waves-light btn sub_btn">点击提交</button>
-
-</div>
+    <button type="submit" class="btn btn-danger">删除</button>
 </form>
-<footer>crm系统</footer>
+
+
 <script type="text/javascript" src="{{ asset('/js/jquery-2.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/materialize/js/materialize.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/js/main.js')}}"></script>
-<script type="text/javascript" src="{{ asset('/js/edit.js')}}"></script>
->>>>>>> panshan
 </body>
 
 </html>

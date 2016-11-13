@@ -14,7 +14,11 @@ class CreateOpportunitiesTable extends Migration
     public function up()
     {
         Schema::create('opportunities', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->increments('opportunity_id');
+=======
+            $table->increments('id');
+>>>>>>> panshan
             $table->timestamps();
             $table->string('opportunity_name');
             //用别的id怎么搞

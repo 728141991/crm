@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-
-class CreateProductTable extends Migration
+use Illuminate\Support\Facades\Schema;
+class ContactProducts extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,10 @@ class CreateProductTable extends Migration
     public function up()
     {
         //
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('contact_products', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('product_name');
-            //这里最好也能做成enum
-            $table->string('product_code');
-            $table->string('product_descrip');
+       $table->integer('contact_id');
+            $table->integer('product_id');
         });
     }
 
@@ -30,6 +28,5 @@ class CreateProductTable extends Migration
     public function down()
     {
         //
-        Schema::drop('products');
     }
 }

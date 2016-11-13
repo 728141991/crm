@@ -18,6 +18,7 @@ Route::get('/home','HomeController@index');
 Route::get('/organization/search','OrganizationController@search');
 Route::resource('/organization','OrganizationController');
 Route::get('/contact/search','ContactController@search');
+<<<<<<< HEAD
 Route::resource('/contact','ContactController');
 
 
@@ -28,3 +29,18 @@ Route::get('/home', 'HomeController@index');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');
+=======
+Route::get('/contact/{id}/add_product/list','ContactController@list_product');
+Route::get('/contact/{id}/add_product/edit','ContactController@edit_product');
+Route::post('/contact/add_product/save','ContactController@save_product');
+Route::resource('/contact','ContactController');
+Route::resource('/lead','LeadController');
+Route::resource('/document','DocumentController');
+Route::resource('/product','ProductController');
+Route::resource('/activity','ActivityController');
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
+>>>>>>> panshan

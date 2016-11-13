@@ -28,6 +28,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+<<<<<<< HEAD
     public function organizations(){  return $this->hasManyThrough('App\Organization','App\Contact','organizationId',NULL,'id');  }
     public function ticket(){  return $this->belongsTo('App\Ticket');  }
     public function opportunity(){  return $this->belongsTo('App\Opportunity');  }
@@ -37,5 +38,16 @@ class User extends Authenticatable
     public function activity(){  return $this->hasMany('App\Activity');  }
     public function documents(){  return $this->hasMany('App\Document');  }
     public function products(){  return $this->hasMany('App\Product');  }
+=======
+    public function organizations(){  return $this->hasMany('App\Organization','assign_to','id');  }
+    public function tickets(){  return $this->hasMany('App\Ticket');  }
+    public function opportunities(){  return $this->hasMany('App\Opportunity');  }
+    public function campaigns(){  return $this->hasMany('App\Campaign');  }
+    public function contacts(){  return $this->hasMany('App\Contact','assign_to','id');  }
+    public function leads(){  return $this->hasMany('App\Lead','assign_to','id');  }
+    public function activities(){  return $this->hasMany('App\Activity');  }
+    public function documents(){  return $this->hasMany('App\Document','assign_to','id');  }
+    public function products(){  return $this->hasMany('App\Product','assign_to','id');  }
+>>>>>>> panshan
 
 }

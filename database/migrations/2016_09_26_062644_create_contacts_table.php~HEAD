@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContactTable extends Migration
+class CreateContactsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,20 +12,17 @@ class CreateContactTable extends Migration
      */
     public function up()
     {
-
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('first_name');
-            //这里最好也能做成enum
             $table->string('last_name');
             $table->string('title');
-            //这边还没有做添加
-            $table->integer('organization_id');
+            $table->integer('organizationId');
             $table->string('email');
             $table->string('office_phone');
+            $table->string('assign_to');
+            $table->string('update');
             $table->timestamps();
-            //这里设置了外键来进行测试
-            //$table->foreign('organization_id')->references('id')->on('organizations');
         });
     }
 
@@ -36,7 +33,6 @@ class CreateContactTable extends Migration
      */
     public function down()
     {
-        //
         Schema::drop('contacts');
     }
 }

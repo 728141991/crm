@@ -1,36 +1,57 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">新增一个组织</div>
-                <div class="panel-body">
-                    
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>新增失败</strong> 输入不符合要求<br><br>
-                            {!! implode('<br>', $errors->all()) !!}
-                        </div>
-                    @endif
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/edit.css')}}">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-                    <form action="{{ url('organization') }}" method="POST">
-                        {!! csrf_field() !!}
-                         <label>组织名称：</label><input type="text" name="organization_name" class="form-control" required="required" >
-                        <br>
-                        <label>所在城市：</label><input type="text" name="city" class="form-control" required="required" >
-                        <br>
-                        <label>相关网站：</label><input type="text" name="website" class="form-control" required="required" >
-                        <br>
-                        <label>相关电话：</label><input type="text" name="phone" class="form-control" required="required" >
-                        <br>
-                        <button class="btn btn-lg btn-info">新增组织</button>
-                    </form>
+<body>
+<header>
+    <div id="head_icon">icon</div>
+    <a class="head_tag" href="{{url('/home')}}">主页</a>
+    <a class="head_tag" href="{{url('/contact')}}">联系人</a>
+    <a id="organization" class="head_tag" href="{{url('/organization')}}">组织</a>
+    <a class="head_tag" href="{{url('/lead')}}">线索</a>
+    <a class="head_tag" href="{{url('/product')}}">产品</a>
+    <a class="head_tag" href="{{url('/campaign')}}">计划</a>
+    <a class="head_tag" href="{{url('/opportunity')}}">机会</a>
+    <a class="head_tag" href="{{url('/activity')}}">备忘录</a>
+    <a class="head_tag" href="{{url('/document')}}">文件</a>
+    <a class="head_tag" href="{{url('/ticket')}}">票务</a>
+</header>
+<form action="{{ URL('organization') }}" method="POST">
 
-                </div>
-            </div>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <button id="edit_sub" >提交点我提交</button>
+    <div id="edit_field">
+        <div class="edit_item">
+            <p>name:</p> <input type="text" id="organization_name" name="organization_name" />
         </div>
+        <div class="edit_item">
+            <p>city:</p>  <input type="text" id="city" name="city"  />
+        </div>
+        <div class="edit_item">
+            <p>website:</p> <input type="text" id="website" name="website"   />
+        </div>
+        <div class="edit_item">
+            <p>phone:</p> <input type="text" id="phone" name="phone"/>
+        </div>
+
+
     </div>
-</div>
-@endsection
+</form>
+<footer>crm系统</footer>
+
+
+<script type="text/javascript" src="{{ asset('/js/jquery-2.1.1.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/materialize/js/materialize.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/js/main.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/js/edit.js')}}"></script>
+</body>
+
+</html>

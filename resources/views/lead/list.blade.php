@@ -2,30 +2,18 @@
 <html lang="en">
 
 <head>
-<<<<<<< HEAD
     <meta charset="UTF-8">
-    <title>Contact</title>
-    <link rel="stylesheet" href="/newproject/public/materialize/css/materialize.css">
-    <link rel="stylesheet" href="/newproject/public/css/main.css">
-    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
-=======
-<meta charset="UTF-8">
-<title>Contact</title>
+    <title>Lead</title>
     <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
-<link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
->>>>>>> panshan
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
 <header>
     <div id="head_icon">icon</div>
     <a class="head_tag" href="{{url('/home')}}">主页</a>
-<<<<<<< HEAD
     <a class="head_tag" href="{{url('/contact')}}">联系人</a>
-=======
-    <a class="head_tag" id="contact" href="{{url('/contact')}}">联系人</a>
->>>>>>> panshan
     <a class="head_tag" href="{{url('/organization')}}">组织</a>
     <a class="head_tag" href="{{url('/lead')}}">领导</a>
     <a class="head_tag" href="{{url('/product')}}">产品</a>
@@ -40,13 +28,13 @@
         <li id="item_title" class="">
             <div class="item_name">first name</div>
             <div>last name</div>
-            <div>title</div>
-            <div>email</div>
-            <div>office phone</div>
-            <div>organization</div>
+            <div>company</div>
+            <div>primary phone</div>
+            <div>website</div>
+            <div>primary email</div>
 
         </li>
-        <form method="get" action="{{url('/contact/search')}}">
+        <form method="get" action="{{url('/lead/search')}}">
             <li id="item_search" class="">
                 <div class="item_name">
                     <input type="text" placeholder="first name" name="first_name" />
@@ -56,60 +44,45 @@
                 </div>
                 <div class="input-field col s12">
 
-                    <input type="text" placeholder="title" name="title" />
+                    <input type="text" placeholder="company" name="company" />
 
                 </div>
                 <div>
-                    <input type="text" placeholder="email" name="email" />
+                    <input type="text" placeholder="primary phone" name="primary_phone" />
                 </div>
-                <div><input type="text" placeholder="office phone" name="office_phone" /></div>
+                <div><input type="text" placeholder="website" name="website" /></div>
 
                 <div>
-                    <input type="text" placeholder="organization" name="organization_name"/>
+                    <input type="text" placeholder="primary email" name="primary_email"/>
                 </div>
 
-<<<<<<< HEAD
                 <div class="all_btn">
-=======
-                <div style="display:block" class="all_btn">
->>>>>>> panshan
                     <button class="waves-effect waves-light btn search_btn">搜索</button><a class="waves-effect waves-light btn clear_btn">清空</a>
                 </div>
             </li>
         </form>
 
 
-        @foreach($contacts as $contact)
+        @foreach($leads as $lead)
             <li class="item">
-              <div class="item_name"> <a href="{{url('contact/'.$contact->id.'/edit')}}">{{$contact->first_name}}</a> </div>
-                <div>{{$contact->last_name}}</div>
-                <div>{{$contact->title}}</div>
-                <div>{{$contact->email}}</div>
-                <div>{{$contact->office_phone}}</div>
-                <div>{{$contact->organization_name}}</div>
+                <div class="item_name"> <a href="{{url('lead/'.$lead->id.'/edit')}}">{{$lead->first_name}}</a> </div>
+                <div>{{$lead->last_name}}</div>
+                <div>{{$lead->company}}</div>
+                <div>{{$lead->primary_phone}}</div>
+                <div>{{$lead->website}}</div>
+                <div>{{$lead->primary_email}}</div>
 
             </li>
-            @endforeach
+        @endforeach
 
     </ul>
-<<<<<<< HEAD
-    <a href="{{url('contact/create')}}">创建新联系人</a>
+    <a class="new_create" href="{{url('lead/create')}}">创建新领导人</a>
 
 </article>
 <footer>crm系统</footer>
-<script type="text/javascript" src="/newproject/public/js/jquery-2.1.1.min.js"></script>
-<script type="text/javascript" src="/newproject/public/materialize/js/materialize.js"></script>
-<script type="text/javascript" src="/newproject/public/js/main.js"></script>
-=======
-    <a class="new_create" href="{{url('contact/create')}}">创建新联系人</a>
-
-</article>
-<footer>crm系统</footer>
-
 <script type="text/javascript" src="{{ asset('/js/jquery-2.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/materialize/js/materialize.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/js/main.js')}}"></script>
->>>>>>> panshan
 </body>
 
 </html>

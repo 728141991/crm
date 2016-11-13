@@ -14,7 +14,11 @@ class CreateTicketsTable extends Migration
     public function up()
     {
         Schema::create('tickets', function (Blueprint $table) {
+<<<<<<< HEAD
             $table->increments('ticket_id');
+=======
+            $table->increments('id');
+>>>>>>> panshan
             $table->string('title');
             $table->integer('organization_id');
             $table->integer('contact_id');

@@ -16,8 +16,11 @@ class CreateContactsTable extends Migration
             $table->increments('id');
             $table->string('first_name');
             $table->string('last_name');
+
+            $table->string('full_name');
+
             $table->string('title');
-            $table->integer('organizationId');
+            $table->integer('organization_id');
             $table->string('email');
             $table->string('office_phone');
             $table->string('assign_to');
