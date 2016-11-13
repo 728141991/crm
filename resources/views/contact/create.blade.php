@@ -1,41 +1,61 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">新增一联系人</div>
-                <div class="panel-body">
-                    
-                    @if (count($errors) > 0)
-                        <div class="alert alert-danger">
-                            <strong>新增失败</strong> 输入不符合要求<br><br>
-                            {!! implode('<br>', $errors->all()) !!}
-                        </div>
-                    @endif
+<head>
+    <meta charset="UTF-8">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/edit.css')}}">
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+</head>
 
-                    <form action="{{ url('contact') }}" method="POST">
-                        {!! csrf_field() !!}
-                         <label>姓：</label><input type="text" name="first_name" class="form-control" required="required" >
-                        <br>
-                        <label>名：</label><input type="text" name="last_name" class="form-control" required="required" >
-                        <br>
-                        <label>头衔：</label><input type="text" name="title" class="form-control" required="required" >
-                        <br>
-                        <label>相关组织id：</label><input type="text" name="organization_id" class="form-control" required="required" >
-                        <br>
-                        <label>邮件：</label><input type="text" name="email" class="form-control" required="required" >
-                        <br>
-                        <label>电话：</label><input type="text" name="office_phone" class="form-control" required="required" >
-                        <br>
+<body>
+<header>
+    <div id="head_icon">icon</div>
+    <a class="head_tag" href="{{url('/home')}}">主页</a>
+    <a class="head_tag" id="contact" href="{{url('/contact')}}">联系人</a>
+    <a class="head_tag" href="{{url('/organization')}}">组织</a>
+    <a class="head_tag" href="{{url('/lead')}}">领导</a>
+    <a class="head_tag" href="{{url('/product')}}">产品</a>
+    <a class="head_tag" href="{{url('/campaign')}}">计划</a>
+    <a class="head_tag" href="{{url('/opportunity')}}">机会</a>
+    <a class="head_tag" href="{{url('/activity')}}">备忘录</a>
+    <a class="head_tag" href="{{url('/document')}}">文件</a>
+    <a class="head_tag" href="{{url('/ticket')}}">票务</a>
+</header>
+<form action="{{ URL('contact') }}" method="POST">
 
-                        <button class="btn btn-lg btn-info">新增联系人</button>
-                    </form>
-
-                </div>
-            </div>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+    <div id="edit_field" class="card">
+        <div class="edit_item">
+            <input type="text" id="first_name" name="first_name" placeholder="first name"/>
         </div>
-    </div>
+        <div class="edit_item">
+            <input type="text" id="last_name" name="last_name" placeholder="last name"/>
+        </div>
+        <div class="edit_item">
+            <input type="text" id="title"name="title"  placeholder="title"/>
+        </div>
+        <div class="edit_item">
+            <input type="text" id="email" name="email" placeholder="email"/>
+        </div>
+
+        <div class="edit_item">
+            <input type="text" id="organization"name="organization_name" placeholder="organization"/>
+        </div>
+        <div class="edit_item">
+          <input type="text" id="office_phone"name="office_phone" placeholder="office phone"/>
+        </div>
+        <button class="waves-effect waves-light btn sub_btn">点击提交</button>
+
 </div>
-@endsection
+</form>
+<footer>crm系统</footer>
+<script type="text/javascript" src="{{ asset('/js/jquery-2.1.1.min.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/materialize/js/materialize.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/js/main.js')}}"></script>
+<script type="text/javascript" src="{{ asset('/js/edit.js')}}"></script>
+</body>
+
+</html>

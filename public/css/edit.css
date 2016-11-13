@@ -1,0 +1,51 @@
+.edit_item{
+	display: inline-block;
+	width:150px;
+	margin:15px;
+}
+
+#edit_field{
+	margin:20px;
+	padding:10px;
+}
+
+.sub_btn{
+	background-color: #6daceb;
+}
+.del_btn1{
+	color: #6daceb;
+	background-color:#ffffff;
+}
+.sub_btn:hover{
+	background-color: #6daceb;
+}
+
+.sub_btn:focus{
+	background-color: #6daceb;
+}
+
+.del_btn1:hover{
+	color:#6daceb;
+	background-color: #ffffff;
+}
+
+.del_btn1:focus{
+	color:#6daceb;
+	background-color: #ffffff;
+}
+
+.item{
+	background-color:#6daceb;
+	height:40px;
+	line-height: 30px;
+	padding-left:20px;
+	width:80px;
+	color:#ffffff;
+}
+
+.a_title>div{
+	padding:6px 18px;
+	margin-left:-4px;
+	display: inline-block;
+	border:1px solid #6daceb;
+}
