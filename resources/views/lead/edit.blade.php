@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Lead</title>
     <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/edit.css')}}">
     <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 </head>

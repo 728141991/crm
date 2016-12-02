@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <title>Contact</title>
     <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
+    <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/edit.css')}}">
     <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
 </head>
@@ -15,7 +16,7 @@
     <a class="head_tag" href="{{url('/home')}}">主页</a>
     <a class="head_tag" href="{{url('/contact')}}">联系人</a>
     <a id="organization" class="head_tag" href="{{url('/organization')}}">组织</a>
-    <a class="head_tag" href="{{url('/lead')}}">线索</a>
+    <a class="head_tag" href="{{url('/lead')}}">联系人</a>
     <a class="head_tag" href="{{url('/product')}}">产品</a>
     <a class="head_tag" href="{{url('/campaign')}}">计划</a>
     <a class="head_tag" href="{{url('/opportunity')}}">机会</a>
