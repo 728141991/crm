@@ -4,9 +4,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Contact</title>
+    <style>
+        .edit_header_name{
+          position: relative;
+            top:40px;
+        }
+        #edit_form{
+            position: relative;
+            top:50px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
     <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
-<link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 
 <body>
@@ -24,7 +37,11 @@
     <a class="head_tag" href="{{url('/ticket')}}">票务</a>
 </header>
 <article>
-    <ul class="item_list card">
+    <div class="header_name edit_header_name">
+        <i class="material-icons">star</i><span>&nbsp;&nbsp;联系人详情</span>
+    </div>
+
+    <ul class="item_list card" id="edit_form">
         <li id="item_title" class="">
             <div class="item_name">first name</div>
             <div>last name</div>

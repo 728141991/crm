@@ -30,11 +30,15 @@ html,body{
 }
 
 header {
+   position: fixed;
     display: -ms-flexbox;
     display: flex;
     background-color: #1B1E32;
     box-shadow: 0 2px 4px 0 #888888;
+    height: 57px;
+    width: 100%;
 }
+
 
 #head_icon {
     background-color: #1B1E32;
@@ -45,12 +49,12 @@ header {
 
 .head_tag {
     font-family: '微软雅黑';
-    font-size: 15px;
+    font-size: 17px;
     color: #F2F2F2;
     background-color: #1B1E32;
     -ms-flex: 0 1 auto;
     flex: 0 1 auto;
-    padding: 12px 15px;
+    padding: 15px 19px;
 }
 
 
@@ -60,15 +64,27 @@ header {
     cursor: pointer;
     background-color: #6DACEB;
 }
-
-footer {
-    padding: 5px 0;
-    height: 25px;
-    text-align: center;
-    font-size: 15px;
-    background-color: #1B1E32;
+.choose{
+    color: #1B1E32;
+    cursor: pointer;
+    background-color: #6DACEB;
 }
-
+footer {
+    padding: 8px 0;
+    height: 40px;
+    text-align: center;
+    font-size: 16px;
+    background-color: #1B1E32;
+    color: white;
+    position: relative;
+    top: 50px;
+}
+.sidebar{
+    width: 130px;
+    position: fixed;
+    top:50px;
+    box-shadow: 1px;
+}
 
 /*item_list相关css*/
 
@@ -99,9 +115,17 @@ footer {
 }
 
 #item_search>div {
-    padding-right: 30px;
+    text-align: center;
+    padding-left: 10px;
 }
 
+.item>div{
+    text-align: center;
+}
+
+#item_title>div{
+    text-align: center;
+}
 .all_btn>a {
     margin-top: 10px;
     margin-bottom: 10px;
@@ -161,3 +185,14 @@ footer {
 .overDetail{
     padding:15px;
 }
+
+#item_title div{
+    font-size: 20px;
+}
+.header_name{
+    position: relative;
+    font-size: 25px;
+    padding-left: 30px;
+    padding-top: 40px;
+}
+

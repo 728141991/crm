@@ -5,8 +5,12 @@
 }
 
 #edit_field{
-	margin:20px;
+	width: 600px;
+	margin-left:100px;
 	padding:10px;
+	margin-top: 30px;
+	position: relative;
+	right:50px;
 }
 
 .sub_btn{
@@ -44,8 +48,44 @@
 }
 
 .a_title>div{
-	padding:6px 18px;
+	padding:8px 18px;
 	margin-left:-4px;
 	display: inline-block;
-	border:1px solid #6daceb;
+
+}
+
+.card_edit{
+	width: 170px;
+	position: relative;
+
+
+}
+
+.card_in_edit{
+	padding-left: 30px;
+	padding-top: 50px;
+}
+.card_in_edit>li{
+	margin: 8px;
+}
+.header_name_edit{
+	position: relative;
+	font-size: 25px;
+	padding-left: 330px;
+	padding-top: 120px;
+}
+.edit_form{
+	position:relative;
+	left: 300px;
+
+}
+
+.collection>a{
+	text-align: center;
+	padding-left: 20px;
+}
+.a_title{
+	position: relative;
+	left: 350px;
+	width: 670px;
 }
