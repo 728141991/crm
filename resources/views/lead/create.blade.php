@@ -10,8 +10,10 @@
 </head>
 
 <body>
-
-<form action="{{ URL('lead') }}" method="POST">
+<div class="header_name_edit">
+    &nbsp;<i class="material-icons">star</i><span>&nbsp;创建新线索</span>
+</div>
+<form action="{{ URL('lead') }}" method="POST" class="card">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <button id="edit_sub" >提交点我提交</button>
