@@ -13,6 +13,13 @@
             position: relative;
             top:50px;
         }
+        .new_create{
+            position: relative;
+            top:70px;display: block;
+            background-color:#6DACEB;
+            color:white;
+            padding: 5px;
+        }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
@@ -37,10 +44,10 @@
     <a class="head_tag" href="{{url('/ticket')}}">票务</a>
 </header>
 <article>
-    <div class="header_name edit_header_name">
+    <div class="header_name edit_header_name" style="position: relative;top:50px">
         <i class="material-icons">star</i><span>&nbsp;&nbsp;联系人详情</span>
     </div>
-
+    <a class="new_create" href="{{url('contact/create')}}">创建新联系人</a>
     <ul class="item_list card" id="edit_form">
         <li id="item_title" class="">
             <div class="item_name">first name</div>
@@ -93,7 +100,7 @@
             @endforeach
 
     </ul>
-    <a class="new_create" href="{{url('contact/create')}}">创建新联系人</a>
+
 
 </article>
 <footer>crm系统</footer>
