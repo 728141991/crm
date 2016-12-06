@@ -16,38 +16,17 @@
 </head>
 
 <body>
-<div id="aaaaa">
-    <div class="overlay"></div>
-    <div class="overDetail">
-        <div>
-            <div class="card" id="edit_field_O">
-                <div class="edit_item_O">first name
-                    <input type="text" placeholder="first name" id="first_name" name="first_name" value="{{$contact->first_name}}" />
-                </div>
-                <div class="edit_item_O">last name
-                    <input type="text" placeholder="last name" id="last_name" name="last_name" value="{{$contact->last_name}}" />
-                </div>
-                <div class="edit_item_O">title
-                    <input type="text" placeholder="title" id="title"name="title"  value="{{$contact->title}}" />
-                </div>
-                <div class="edit_item_O">email
-                    <input type="text" placeholder="email" id="email" name="email" value="{{$contact->email}}" />
-                </div>
-                <div class="edit_item_O">organization
-                    <input type="text" placeholder="organization" id="organization"name="organization_name"  value="{{$organization_name}}" />
-                </div>
-                <div class="edit_item_O">office phone
-                    <input type="text" placeholder="office phone" id="office_phone"name="office_phone" value="{{$contact->office_phone}}" />
-                </div>
-                <div class="edit_item_O">organzation
-                    <input type="text" placeholder="organzation" id="organzation"name="organzation" value="{{$contact->office_phone}}" />
-                </div>
-            </div>
-        </div>
-        <button style="width:60px;margin-left:560px" id="overClose" type="submit" class="btn btn-danger del_btn1">关闭</button>
-
-
+<div id="detail" class="a_title card-panel" style="display: none">
+    <div>organization name</div>
+    <div>city</div>
+    <div>website</div>
+    <div>phone</div>
+    <div style="position:relative;top:5px">
+        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+        <label for="filled-in-box"></label>
     </div>
+    <button onclick="$('#detail').attr('display','none');">关闭</button>
+    <button type="submit" onclick="$('#detail').attr('display','none');">确定</button>
 </div>
 <header>
     <div id="head_icon">icon</div>
@@ -77,38 +56,21 @@
 <div class="header_name_edit" >
     &nbsp;<i class="material-icons">star</i><a name="organization" id="organization">&nbsp;选择组织</a>
 </div>
+<a class="new_create" onclick="show()">增加</a>
 <div id="detail_item3" class="a_title card-panel">
     <div>organization name</div>
     <div>city</div>
     <div>website</div>
     <div>phone</div>
-    <div style="position:relative;top:5px">
-        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-        <label for="filled-in-box"></label>
-    </div>
+
 </div>
-{{--<div class="card card_edit" style="height:400px" >--}}
-{{--<button id="chocie-more" style="margin:20px;" type="submit" class="btn btn-danger">选择</button>--}}
-{{--
-{{--<div>--}}
 
-{{--<div style="margin-left:100px">--}}
-{{--<div>--}}
-
-{{--</div>--}}
-
-{{--<div id="detail_item3" style="display: none">--}}
-{{--<div class="a_title">--}}
-{{--<div class="item_name">organization name</div>--}}
-{{--<div>city</div>--}}
-{{--<div>website</div>--}}
-{{--<div>phone</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
-{{--</div>--}}
 <footer>crm系统</footer>
+<script>
+    function show(){
+        $('#detail').attr('display','');
+    }
+</script>
 <script type="text/javascript" src="{{ asset('/js/jquery-2.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/materialize/js/materialize.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/js/main.js')}}"></script>
