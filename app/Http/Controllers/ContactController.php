@@ -185,15 +185,34 @@ class ContactController extends Controller
     }
     public function list_product($id){
         $products=Contact::find($id)->products()->get();
-        return view('contact/product/list',['contact'=>Contact::find($id),'products'=>$products]);
+//        $organizationId=Contact::find($id)->organization_id;
+//        $organization_name=DB::table('organizations')
+//            ->where('id',$organizationId)->value('organization_name');
+        $all_products=User::find(Auth::id())->products()->get();
+        return view('contact/product/edit_product',['contact'=>Contact::find($id),'products'=>$products,'all_product'=>$all_products]);
     }
-    public function edit_product($id){
-        $products=User::find(Auth::id())->products()->get();
-        return view('contact/product/edit',['contact'=>Contact::find($id),'products'=>$products]);
-    }
+
     public function save_product(Request $request,$id){
         $products=User::find(Auth::id())->products()->get();
-        return view('contact/product/edit',['contact'=>Contact::find($id),'products'=>$products]);
+        //看是否能够传一个list给后台
+        $product_id = $request->input('product_id');
+
+        $contact = Contact::find($id);
+        $contact->products()->attach($product_id);
+        //这个不知道对不对啊。
+        return Redirect::to('contact/'.$id.'/add_product/list');
     }
+
+    public function delete_product(Request $request,$id){
+        $products=User::find(Auth::id())->products()->get();
+        //看是否能够传一个list给后台
+        $product_id = $request->input('product_id');
+
+        $contact = Contact::find($id);
+        $contact->products()->detach($product_id);
+        //这个真不知道对不对啊
+        return Redirect::to('contact/'.$id.'/add_product/list');
+    }
+
 
 }

@@ -16,39 +16,7 @@
 </head>
 
 <body>
-<div id="aaaaa">
-    <div class="overlay"></div>
-    <div class="overDetail">
-        <div>
-            <div class="card" id="edit_field_O">
-                <div class="edit_item_O">first name
-                    <input type="text" placeholder="first name" id="first_name" name="first_name" value="{{$contact->first_name}}" />
-                </div>
-                <div class="edit_item_O">last name
-                    <input type="text" placeholder="last name" id="last_name" name="last_name" value="{{$contact->last_name}}" />
-                </div>
-                <div class="edit_item_O">title
-                    <input type="text" placeholder="title" id="title"name="title"  value="{{$contact->title}}" />
-                </div>
-                <div class="edit_item_O">email
-                    <input type="text" placeholder="email" id="email" name="email" value="{{$contact->email}}" />
-                </div>
-                <div class="edit_item_O">organization
-                    <input type="text" placeholder="organization" id="organization"name="organization_name"  value="{{$organization_name}}" />
-                </div>
-                <div class="edit_item_O">office phone
-                    <input type="text" placeholder="office phone" id="office_phone"name="office_phone" value="{{$contact->office_phone}}" />
-                </div>
-                <div class="edit_item_O">organzation
-                    <input type="text" placeholder="organzation" id="organzation"name="organzation" value="{{$contact->office_phone}}" />
-                </div>
-        </div>
-    </div>
-        <button style="width:60px;margin-left:560px" id="overClose" type="submit" class="btn btn-danger del_btn1">关闭</button>
 
-
-</div>
-    </div>
 <header>
     <div id="head_icon">icon</div>
     <a class="head_tag" href="{{url('/home')}}">主页</a>
@@ -102,10 +70,10 @@
 </form>
 <div class="sidebar">
     <div class="collection">
-        <a href="{{url('')}}" class="collection-item" id="item_choose">联系人详情</a>
-        <a href="{{url('')}}" class="collection-item">线索</a>
-        <a href="{{url('')}}" class="collection-item">产品</a>
-        <a href="{{url('')}}" class="collection-item">组织</a>
+        <a href="{{url('contact/'.$contact->id.'/edit')}}" class="collection-item" id="item_choose">联系人详情</a>
+        <a href="{{url('contact/'.$contact->id.'/edit-lead')}}" class="collection-item">线索</a>
+        <a href="{{url('contact/'.$contact->id.'/add_product/list')}}" class="collection-item">产品</a>
+        <a href="{{url('contact/'.$contact->id.'/edit')}}" class="collection-item">组织</a>
     </div>
 </div>
 

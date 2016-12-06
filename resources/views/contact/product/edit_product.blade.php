@@ -66,28 +66,62 @@
 
 <div class="sidebar">
     <div class="collection">
-        <a href="{{url('#')}}" class="collection-item">联系人详情</a>
-        <a href="{{url('#')}}" class="collection-item">线索</a>
-        <a href="{{url('#')}}" class="collection-item" id="item_choose">产品</a>
-        <a href="{{url('#')}}" class="collection-item">组织</a>
+        <a href="{{url('contact/'.$contact->id.'/edit')}}" class="collection-item">联系人详情</a>
+        <a href="{{url('contact/'.$contact->id.'/edit-lead')}}" class="collection-item">线索</a>
+        <a href="{{url('contact/'.$contact->id.'/add_product/list')}}" class="collection-item" id="item_choose">产品</a>
+        <a href="{{url('contact/'.$contact->id.'/edit')}}" class="collection-item">组织</a>
     </div>
 </div>
 
 <div class="header_name_edit">
     &nbsp;<i class="material-icons">star</i><a name="product" id="product">&nbsp;选择产品</a>
 </div>
-<div id="detail_item2" class="a_title card-panel">
-    <div>code</div>
-    <div>description</div>
-    <div>part number</div>
-    <div>unit price</div>
-    <div>commission rate</div>
-    <div style="position:relative;top:5px">
-        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-        <label for="filled-in-box"></label>
-    </div>
-</div>
+{{--<div id="detail_item2" class="a_title card-panel">--}}
+    {{--<div>code</div>--}}
+    {{--<div>description</div>--}}
+    {{--<div>part number</div>--}}
+    {{--<div>unit price</div>--}}
+    {{--<div>commission rate</div>--}}
+    {{--<div style="position:relative;top:5px">--}}
+        {{--<input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />--}}
+        {{--<label for="filled-in-box"></label>--}}
+    {{--</div>--}}
+{{--</div>--}}
+<article>
+    <ul class="item_list card">
+        <li id="item_title" class="">
+            <div class="item_name">name</div>
+            <div>code</div>
+            <div>description</div>
+            <div>part number</div>
+            <div>unit price</div>
+            <div>commission rate</div>
+            <div>quantity per unit</div>
+            <div>weight</div>
+            <div>sales start date</div>
+            <div>sales end date</div>
 
+        </li>
+        @foreach($products as $product)
+            <li class="item">
+
+                <div>{{$product->product_code}}</div>
+                <div>{{$product->product_description}}</div>
+                <div>{{$product->part_number}}</div>
+                <div>{{$product->unit_price}}</div>
+                <div>{{$product->commission_rate}}</div>
+                <div>{{$product->qty_per_unit}}</div>
+                <div>{{$product->weight}}</div>
+                <div>{{$product->sales_start_date}}</div>
+                <div>{{$product->sales_end_date}}</div>
+
+            </li>
+        @endforeach
+
+    </ul>
+    <a class="new_create" href="{{url('product/create')}}">创建新产品</a>
+
+</article>
 
 
 <footer>crm系统</footer>

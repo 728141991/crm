@@ -265,6 +265,7 @@ class ComposerStaticInit65fb44981eec0f0223df013251e26a63
     );
 
     public static $classMap = array (
+        'ContactProduct' => __DIR__ . '/../..' . '/database/migrations/2016_12_06_123206_contact_product.php',
         'ContactProducts' => __DIR__ . '/../..' . '/database/migrations/2016_10_31_155706_contact_products.php',
         'CreateActivitiesTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_26_071616_create_activities_table.php',
         'CreateCampaignsTable' => __DIR__ . '/../..' . '/database/migrations/2016_09_27_132808_create_campaigns_table.php',
