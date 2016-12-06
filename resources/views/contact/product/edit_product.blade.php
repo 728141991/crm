@@ -49,6 +49,25 @@
 
     </div>
 </div>
+<form id="detail" style="display:none">
+    <ul id="detail_item2" class="a_title card-panel">
+        <li>
+            <div>code</div>
+            <div>description</div>
+            <div>part number</div>
+            <div>unit price</div>
+            <div>commission rate</div>
+            <div style="position:relative;top:5px">
+                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                <label for="filled-in-box"></label>
+            </div>
+
+        </li>
+
+    </ul>
+    <button onclick="$('#detail').attr('display','none');">关闭</button>
+    <button type="submit" onclick="$('#detail').attr('display','none');">确定</button>
+</form>
 <header>
     <div id="head_icon">icon</div>
     <a class="head_tag" href="{{url('/home')}}">主页</a>
@@ -76,21 +95,33 @@
 <div class="header_name_edit">
     &nbsp;<i class="material-icons">star</i><a name="product" id="product">&nbsp;选择产品</a>
 </div>
-<div id="detail_item2" class="a_title card-panel">
-    <div>code</div>
-    <div>description</div>
-    <div>part number</div>
-    <div>unit price</div>
-    <div>commission rate</div>
-    <div style="position:relative;top:5px">
-        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
-        <label for="filled-in-box"></label>
-    </div>
-</div>
+<a class="new_create" onclick="show()">增加</a>
+
+    <ul id="detail_item2" class="a_title card-panel">
+        <li>
+            <div>code</div>
+            <div>description</div>
+            <div>part number</div>
+            <div>unit price</div>
+            <div>commission rate</div>
+            <div style="position:relative;top:5px">
+                <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" />
+                <label for="filled-in-box"></label>
+            </div>
+        </li>
+
+    </ul>
+
+
 
 
 
 <footer>crm系统</footer>
+<script>
+    function show(){
+        $('#detail').attr('display','');
+    }
+</script>
 <script type="text/javascript" src="{{ asset('/js/jquery-2.1.1.min.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/materialize/js/materialize.js')}}"></script>
 <script type="text/javascript" src="{{ asset('/js/main.js')}}"></script>
