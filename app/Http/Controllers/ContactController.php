@@ -185,11 +185,12 @@ class ContactController extends Controller
     }
     public function list_product($id){
         $products=Contact::find($id)->products()->get();
-//        $organizationId=Contact::find($id)->organization_id;
-//        $organization_name=DB::table('organizations')
-//            ->where('id',$organizationId)->value('organization_name');
+        $organizationId=Contact::find($id)->organization_id;
+        $organization_name=DB::table('organizations')
+            ->where('id',$organizationId)->value('organization_name');
+        //需要用where去掉已有products
         $all_products=User::find(Auth::id())->products()->get();
-        return view('contact/product/edit_product',['contact'=>Contact::find($id),'products'=>$products,'all_product'=>$all_products]);
+        return view('contact/product/edit_product',['contact'=>Contact::find($id),'products'=>$products,'all_products'=>$all_products,'organization_name'=>$organization_name]);
     }
 
     public function save_product(Request $request,$id){

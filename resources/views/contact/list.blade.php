@@ -89,7 +89,7 @@
 
         @foreach($contacts as $contact)
             <li class="item">
-              <div class="item_name"> <a href="{{url('contact/'.$contact->id.'/edit')}}">{{$contact->first_name}}</a> </div>
+                <div class="item_name"> <a href="{{url('contact/'.$contact->id.'/edit')}}">{{$contact->first_name}}</a> </div>
                 <div>{{$contact->last_name}}</div>
                 <div>{{$contact->title}}</div>
                 <div>{{$contact->email}}</div>
@@ -97,7 +97,7 @@
                 <div>{{$contact->organization_name}}</div>
 
             </li>
-            @endforeach
+        @endforeach
 
     </ul>
 

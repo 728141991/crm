@@ -30,13 +30,13 @@ html,body{
 }
 
 header {
-   position: fixed;
+
     display: -ms-flexbox;
     display: flex;
     background-color: #1B1E32;
     box-shadow: 0 2px 4px 0 #888888;
     height: 57px;
-    width: 100%;
+
 }
 
 

@@ -17,8 +17,11 @@ class CreateOrganizationsTable extends Migration
             $table->string('organization_name');
             $table->string('city');
             $table->string('website');
+            $table->string('email');
+            $table->string('relationship');
             $table->string('phone');
             $table->string('assign_to');
+            $table->string('address');
             $table->string('update');
             $table->timestamps();
         });

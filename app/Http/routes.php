@@ -19,8 +19,6 @@ Route::get('/organization/search','OrganizationController@search');
 Route::resource('/organization','OrganizationController');
 Route::get('/contact/search','ContactController@search');
 
-Route::get('/contact/{id}/add_product/list','ContactController@list_product');
-Route::get('/contact/{id}/add_product/edit','ContactController@edit_product');
 Route::post('/contact/{id}/add_product/save','ContactController@save_product');
 Route::post('/contact/{id}/add_product/delete','ContactController@delete_product');
 //额外添加的代码
@@ -33,7 +31,7 @@ Route::resource('/lead','LeadController');
 Route::resource('/document','DocumentController');
 Route::resource('/product','ProductController');
 Route::resource('/activity','ActivityController');
-
+Route::resource('/campaign','CampaignController');
 Route::auth();
 
 Route::get('/home', 'HomeController@index');

@@ -46,8 +46,11 @@ class OrganizationController extends Controller
         $organization->organization_name =$request->input('organization_name');
         $organization->city = Input::get('city');
         $organization->website = Input::get('website');
+        $organization->email = Input::get('email');
+        $organization->relationship = Input::get('relationship');
         $organization->phone = Input::get('phone');
         $organization->assign_to = Auth::id();
+        $organization->address = Input::get('address');
         $organization->update ="";
         if ($organization->save()) {
             return Redirect::to('organization/list');
@@ -67,6 +70,8 @@ class OrganizationController extends Controller
     {
         $organization=DB::table('organizations')->where('id',$id)->first();
         return view('organization.edit')->withOrganization($organization);
+
+
     }
 
     /**
@@ -80,7 +85,18 @@ class OrganizationController extends Controller
 
         $organization=DB::table('organizations')->where('id',$id)
             ->update(['organization_name'=>$request->input('organization_name'),'phone'=>$request->input('phone'),'city'=>$request->input('city'),'website'=>$request->input('website')]);
-        if ($organization) {
+
+        $organization = Organization::find($id);
+        $organization->organization_name =$request->input('organization_name');
+        $organization->city = Input::get('city');
+        $organization->website = Input::get('website');
+        $organization->email = Input::get('email');
+        $organization->relationship = Input::get('relationship');
+        $organization->phone = Input::get('phone');
+        $organization->assign_to = Auth::id();
+        $organization->address = Input::get('address');
+        $organization->update ="";
+        if ($organization->save()) {
             return Redirect::to('organization/list');
       } else {
          return Redirect::back()->withInput()->withErrors('保存失败！');
