@@ -2,6 +2,19 @@
 <html lang="en">
 
 <head>
+    <style>
+        #form{
+            position: relative;
+            top: 40px;
+        }
+        .new_create{
+            position: relative;
+            top:70px;display: block;
+            background-color:#6DACEB;
+            color:white;
+            padding: 5px;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Lead</title>
     <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
@@ -15,7 +28,7 @@
     <a class="head_tag" href="{{url('/home')}}">主页</a>
     <a class="head_tag" href="{{url('/contact')}}">联系人</a>
     <a class="head_tag" href="{{url('/organization')}}">组织</a>
-    <a class="head_tag" href="{{url('/lead')}}">领导</a>
+    <a class="head_tag choose" href="{{url('/lead')}}">领导</a>
     <a class="head_tag" href="{{url('/product')}}">产品</a>
     <a class="head_tag" href="{{url('/campaign')}}">计划</a>
     <a class="head_tag" href="{{url('/opportunity')}}">机会</a>
@@ -24,7 +37,11 @@
     <a class="head_tag" href="{{url('/ticket')}}">票务</a>
 </header>
 <article>
-    <ul class="item_list card">
+    <div class="header_name edit_header_name" style="position: relative;top:50px">
+        <i class="material-icons">star</i><span>&nbsp;&nbsp;线索详情</span>
+    </div>
+    <a class="new_create" href="{{url('lead/create')}}">创建新领导人</a>
+    <ul class="item_list card" id="form">
         <li id="item_title" class="">
             <div class="item_name">first name</div>
             <div>last name</div>
@@ -76,7 +93,7 @@
         @endforeach
 
     </ul>
-    <a class="new_create" href="{{url('lead/create')}}">创建新领导人</a>
+
 
 </article>
 <footer>crm系统</footer>

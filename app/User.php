@@ -42,7 +42,7 @@ class User extends Authenticatable
     public function organizations(){  return $this->hasMany('App\Organization','assign_to','id');  }
     public function tickets(){  return $this->hasMany('App\Ticket');  }
     public function opportunities(){  return $this->hasMany('App\Opportunity');  }
-    public function campaigns(){  return $this->hasMany('App\Campaign');  }
+    public function campaigns(){  return $this->hasMany('App\Campaign','assign_to','id');  }
     public function contacts(){  return $this->hasMany('App\Contact','assign_to','id');  }
     public function leads(){  return $this->hasMany('App\Lead','assign_to','id');  }
     public function activities(){  return $this->hasMany('App\Activity');  }

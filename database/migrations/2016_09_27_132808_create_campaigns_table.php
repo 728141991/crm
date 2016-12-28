@@ -20,21 +20,30 @@ class CreateCampaignsTable extends Migration
             $table->increments('id');
 >>>>>>> panshan
             $table->timestamps();
-            $table->string('campaign_status');
             $table->string('campaign_name');
+            $table->string('type');
+            //状态
+            $table->string('status');
+            //预算
+            $table->double('budget');
+            //价值
+            $table->integer('value');
+            //期待汇报
+            $table->string('expected_revenue');
+            //预计结束日期
+            $table->string('expected_close_data');
+            //负责人
+            $table->string('assign_to');
+            //与其相关的产品id，之后补充上去
+            $table->integer('product_id');
+
             $table->dateTime('create_time');
             $table->dateTime('modified_time');
             $table->string('target_audience');
-            $table->string('expected_close_data');
-            $table->integer('product_id');
             $table->integer('num_sent');
-            $table->double('budget_cost');
             $table->double('actual_cost');
-            $table->string('expected_response');
-            $table->string('expected_revenue');
             $table->string('expected_roi');
             $table->string('actual_roi');
-            $table->string('assign_to');
             $table->string('update');
         });
     }

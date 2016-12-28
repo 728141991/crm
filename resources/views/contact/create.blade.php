@@ -2,6 +2,13 @@
 <html lang="en">
 
 <head>
+    <style>
+        #create_form{
+            position: relative;
+            top: 20px;
+            left: 290px;
+        }
+    </style>
     <meta charset="UTF-8">
     <title>Contact</title>
 <<<<<<< HEAD
@@ -120,7 +127,10 @@
     <a class="head_tag" href="{{url('/document')}}">文件</a>
     <a class="head_tag" href="{{url('/ticket')}}">票务</a>
 </header>
-<form action="{{ URL('contact') }}" method="POST">
+<div class="header_name_edit">
+    &nbsp;<i class="material-icons">star</i><span>&nbsp;创建新联系人</span>
+</div>
+<form action="{{ URL('contact') }}" method="POST" id="create_form">
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div id="edit_field" class="card">

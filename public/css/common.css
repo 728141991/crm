@@ -1,0 +1,43 @@
+@CHARSET "UTF-8";
+.container{
+	width: 95%;
+}
+.navbar-a{
+	font-size: 30px;
+	margin-right: 20px;
+	margin-left: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.navbar-brand-a{
+	font-size: 30px;
+}
+.navbar-brand-div{
+	margin-right: 20px;
+	margin-left: 20px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.form-btn-align{
+	text-align:center;
+}
+th{
+	text-align:center;
+}
+td{
+	text-align:center;
+}
+.leftMenu-invisible{
+	display: none;
+}
+#leftMenu{
+	box-shadow:gray 2px 2px 5px 1px;
+	min-height:400px;
+}
+.search-form{
+	display:inline;
+}
