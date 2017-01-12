@@ -52,8 +52,6 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h2>组织列表</h2>
-                        {{--<button type="button" class="btn btn-default" data-url="{{URL::to('organization/create')}}" id="showOtherMenuButton">创建组织</button>--}}
-
                         <a type="button" class="btn btn-default"  href="{{url('organization/create')}}">创建组织</a>
                         <form method="post" action="#" role="form" class="pull-right search-form" >
                             <input type="text" placeholder="搜索">

@@ -43,7 +43,7 @@
                 <div class="list-group" id="leftMenu">
                     <div class="leftMenu">
                         <a href="#" id="leftMenuJihua" class="list-group-item active">计划详情</a>
-                        <a href="edit_campaign_contact.html" id="leftMenuLianxiren" class="list-group-item">相关联系人</a>
+                        <a href="{{url('/campaign/'.$campaign->id.'/contact')}}" id="leftMenuLianxiren" class="list-group-item">相关联系人</a>
                         <a href="edit_campaign_organization.html" id="leftMenuZuzhi" class="list-group-item">相关组织</a>
                         <a href="edit_campaign_opportunity.html" id="leftMenuJihui" class="list-group-item">相关机会</a>
                     </div>

@@ -1,113 +1,118 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<title>Contact</title>
-    <style>
-        .edit_header_name{
-          position: relative;
-            top:40px;
-        }
-        #edit_form{
-            position: relative;
-            top:50px;
-        }
-        .new_create{
-            position: relative;
-            top:70px;display: block;
-            background-color:#6DACEB;
-            color:white;
-            padding: 5px;
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('/materialize/css/materialize.css')}}">
-    <link rel="stylesheet" href="{{ asset('/css/main.css')}}">
-
-    <link href="https://fonts.css.network/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>联系人</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{asset('/css/common.css')}}" rel="stylesheet">
+    <script src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="{{asset(('/js/contact_list.js'))}}"></script>
 </head>
 
 <body>
-<header>
-    <div id="head_icon">icon</div>
-    <a class="head_tag" href="{{url('/home')}}">主页</a>
-    <a class="head_tag" id="contact" href="{{url('/contact')}}">联系人</a>
-    <a class="head_tag" href="{{url('/organization')}}">组织</a>
-    <a class="head_tag" href="{{url('/lead')}}">领导</a>
-    <a class="head_tag" href="{{url('/product')}}">产品</a>
-    <a class="head_tag" href="{{url('/campaign')}}">计划</a>
-    <a class="head_tag" href="{{url('/opportunity')}}">机会</a>
-    <a class="head_tag" href="{{url('/activity')}}">备忘录</a>
-    <a class="head_tag" href="{{url('/document')}}">文件</a>
-    <a class="head_tag" href="{{url('/ticket')}}">票务</a>
-</header>
-<article>
-    <div class="header_name edit_header_name" style="position: relative;top:50px">
-        <i class="material-icons">star</i><span>&nbsp;&nbsp;联系人详情</span>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header navbar-brand-div">
+            <a class="navbar-brand navbar-brand-a" href="#">主页</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav navbar-a"  id="nav_bar">
+                <li class="active"><a href="{{url('/contact')}}" id="contact_list_nav" target="view_center">联系人</a></li>
+                <li><a href="{{url('/campaign')}}" id="jihua_nav" target="view_center">计划</a></li>
+                <li><a href="{{url('/organization')}}" id="zuzhi_nav" target="view_center">组织</a></li>
+                <li><a href="{{url('/product')}}" id="chanpin_nav" target="view_center">产品</a></li>
+                <li><a href="{{url('/opportunity')}}" id="opportunity" target="view_center">机会</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-    <a class="new_create" href="{{url('contact/create')}}">创建新联系人</a>
-    <ul class="item_list card" id="edit_form">
-        <li id="item_title" class="">
-            <div class="item_name">first name</div>
-            <div>last name</div>
-            <div>title</div>
-            <div>email</div>
-            <div>office phone</div>
-            <div>organization</div>
+    <!-- /.container-fluid -->
+</nav>
 
-        </li>
-        <form method="get" action="{{url('/contact/search')}}">
-            <li id="item_search" class="">
-                <div class="item_name">
-                    <input type="text" placeholder="first name" name="first_name" />
+<div id="center">
+    <div class="container" id="contact">
+        <div class="row">
+            <div class="clo-xs-12 col-sm-2 col-md-2 col-lg-2">
+                <div class="list-group" id="leftMenu">
+                    <div class="leftMenu">
+                        <a href="#" class="list-group-item active">联系人列表</a>
+                    </div>
                 </div>
-                <div class="input-field col s12">
-                    <input type="text" placeholder="last name" name="last_name"/>
+            </div>
+
+            <div class="clo-xs-12 col-sm-10 col-md-10 col-lg-10" id="panel0">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2>联系人列表</h2>
+                        <a type="button" class="btn btn-default" href="{{url('contact/create')}}">创建联系人</a>
+                        <form method="post" action="#" role="form" class="pull-right search-form" >
+                            <input type="text" placeholder="搜索">
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <form method="post" action="#" role="form">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>姓名</th>
+                                    <th>负责人</th>
+                                    <th>头衔</th>
+                                    <th>邮箱</th>
+                                    <th>办公室电话</th>
+                                    <th>所属企业</th>
+                                    <th>操作</th>
+                                </tr>
+                                <tr>
+                                    <td>潘杉</td>
+                                    <td>业务人员A</td>
+                                    <td>无</td>
+                                    <td>728141991@qq.com</td>
+                                    <td>13570478286</td>
+                                    <td>华南理工大学</td>
+                                    <td><button type="button" class="btn btn-default btn-xs edit_button">编辑</button>&nbsp;<button type="button" class="btn btn-default btn-xs">删除</button></td>
+                                </tr>
+                                <tr>
+                                    <td>钟迪</td>
+                                    <td>业务人员B</td>
+                                    <td>无</td>
+                                    <td>123456@qq.com</td>
+                                    <td>132139213921</td>
+                                    <td>华南理工大学</td>
+                                    <td><button type="button" class="btn btn-default btn-xs edit_button">编辑</button>&nbsp;<button type="button" class="btn btn-default btn-xs">删除</button></td>
+                                </tr>
+                                @foreach($contacts as $contact)
+                                    <tr>
+                                        <td>{{$contact->full_name}}</td>
+                                        <td>{{$contact->assign_to}}</td>
+                                        <td>{{$contact->title}}</td>
+                                        <td>{{$contact->email}}</td>
+                                        <td>{{$contact->office_phone}}</td>
+                                        <td>{{$contact->address}}</td>
+                                        <td><a type="button" href="{{url('contact/'.$contact->id.'/edit')}}" class="btn btn-default btn-xs" >编辑</a>&nbsp;
+                                            <form action="{{ URL('contact/'.$contact->id) }}" method="POST" style="display: inline;">
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit" class="btn btn-default btn-xs">删除</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
+                        </form>
+                    </div>
                 </div>
-                <div class="input-field col s12">
+            </div>
 
-                    <input type="text" placeholder="title" name="title" />
+        </div>
+    </div>
 
-                </div>
-                <div>
-                    <input type="text" placeholder="email" name="email" />
-                </div>
-                <div><input type="text" placeholder="office phone" name="office_phone" /></div>
-
-                <div>
-                    <input type="text" placeholder="organization" name="organization_name"/>
-                </div>
-
-                <div style="display:block" class="all_btn">
-                    <button class="waves-effect waves-light btn search_btn">搜索</button><a class="waves-effect waves-light btn clear_btn">清空</a>
-                </div>
-            </li>
-        </form>
-
-
-        @foreach($contacts as $contact)
-            <li class="item">
-                <div class="item_name"> <a href="{{url('contact/'.$contact->id.'/edit')}}">{{$contact->first_name}}</a> </div>
-                <div>{{$contact->last_name}}</div>
-                <div>{{$contact->title}}</div>
-                <div>{{$contact->email}}</div>
-                <div>{{$contact->office_phone}}</div>
-                <div>{{$contact->organization_name}}</div>
-
-            </li>
-        @endforeach
-
-    </ul>
-
-
-</article>
-<footer>crm系统</footer>
-
-<script type="text/javascript" src="{{ asset('/js/jquery-2.1.1.min.js')}}"></script>
-<script type="text/javascript" src="{{ asset('/materialize/js/materialize.js')}}"></script>
-<script type="text/javascript" src="{{ asset('/js/main.js')}}"></script>
+</div>
+<!-- center -->
 </body>
-
 </html>

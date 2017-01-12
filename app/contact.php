@@ -12,8 +12,9 @@ class Contact extends Model
     public function opportunities(){
         return $this->hasMany('App\Opportunity');
     }
-    public function campaign(){
-        return $this->hasMany('App\Campaign');
+    public function campaigns(){
+//        return $this->hasMany('App\Campaign');
+        return $this->belongsToMany('App\Campaign','contact_campaigns','contact_id','campaign_id');
     }
     function documents(){
         return $this->hasMany('App\Document');

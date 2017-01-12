@@ -23,6 +23,7 @@ class CreateContactsTable extends Migration
             $table->integer('organization_id');
             $table->string('email');
             $table->string('office_phone');
+            $table->string("address");
             $table->string('assign_to');
             $table->string('update');
             $table->timestamps();

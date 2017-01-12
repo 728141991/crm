@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
 
 class CampaignController extends Controller
 {
@@ -112,6 +113,29 @@ class CampaignController extends Controller
         $campaign= Campaign::find($id);
         $campaign->delete();
 
-        return Redirect::to('campaign/list');
+
+
+         Redirect::to('campaign/list');
+    }
+
+    public function list_contact($id)
+    {
+        $campaign = Campaign::find($id);
+        $related_contacts = $campaign->contacts()->get();
+        $un_contacts = DB::select("SELECT * FROM contacts
+              where id not in 
+              (SELECT contact_id from contact_campaigns where campaign_id =" . $id . ");");
+        return view('campaign/list_contact', ['campaign' => $campaign,'related_contacts' => $related_contacts, 'un_contacts' => $un_contacts]);
+    }
+    public function delete_contact($id,$id2)
+    {
+        DB::delete("DELETE FROM contact_campaigns
+              where campaign_id =" . $id . " and contact_id =".$id2.";");
+        return Redirect::to('campaign/'.$id.'/contact');
+    }
+
+    public function add_contact($id){
+        DB::insert();
+        return Redirect::to('campaign/'.$id.'/contact');
     }
 }
