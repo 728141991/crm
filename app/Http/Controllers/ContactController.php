@@ -238,8 +238,14 @@ class ContactController extends Controller
         return Redirect::to('contact/'.$id.'/campaign');
     }
 
-    public function add_campaign($id){
-        DB::insert();
+    public function add_campaign(Request $request,$id){
+        $contact_id = $id;
+        $checkboxes = $request->input('checkbox');
+        foreach ($checkboxes as $checkbox){
+            $campaign_id = $checkbox;
+            DB::insert("INSERT INTO contact_campaigns (contact_id,campaign_id)
+             values (".$contact_id.",".$campaign_id.");");
+        }
         return Redirect::to('contact/'.$id.'/campaign');
     }
 }

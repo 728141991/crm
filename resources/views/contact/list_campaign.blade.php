@@ -137,7 +137,7 @@
                                         </tr>
                                         @foreach($un_campaigns as $campaign)
                                             <tr>
-                                                <td><input type="checkbox" name="isChecked" value={{$campaign->id}} ></td>
+                                                <td><input type="checkbox" name="checkbox[]" id="checkbox" value={{$campaign->id}} ></td>
                                                 <td>{{$campaign->campaign_name}}</td>
                                                 <td>{{$campaign->assign_to}}</td>
                                                 <td>{{$campaign->status}}</td>
@@ -148,8 +148,6 @@
                                 </div>
                                 <div class="modal-footer">
                                     <div class="form-btn-align">
-                                        <input name="_method" type="hidden" value="PUT">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <button type="submit" class="btn btn-default">提交</button>&nbsp;&nbsp;&nbsp;&nbsp;
                                         <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
                                     </div>

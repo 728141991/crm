@@ -2,8 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
-class ContactProducts extends Migration
+
+class ContactCampaignsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,10 @@ class ContactProducts extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('contact_products', function (Blueprint $table) {
+        Schema::create('contact_campaigns', function (Blueprint $table) {
             $table->increments('id');
-       $table->integer('contact_id');
-            $table->integer('product_id');
+            $table->integer('contact_id');
+            $table->integer('campaign_id');
         });
     }
 
@@ -27,6 +26,7 @@ class ContactProducts extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('contact_products');
+        //
+        Schema::dropIfExists('contact_campaigns');
     }
 }

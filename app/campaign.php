@@ -13,6 +13,7 @@ class Campaign extends Model
     public function leads(){  return $this->belongsToMany('App\Lead');  }
     //???
     public function opportunity(){  return $this->belongsTo('App\Opportunity');  }
-    public function organizations(){  return $this->belongsToMany('App\Organization');  }
+    public function organizations(){
+        return $this->belongsToMany('App\Organization','organization_campaigns','campaign_id','organization_id');  }
     public function user(){  return $this->belongsTo('App\User');  }
 }

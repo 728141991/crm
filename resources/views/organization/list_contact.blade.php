@@ -44,8 +44,7 @@
                         <a href="{{url('/campaign/'.$campaign->id.'/edit')}}" id="leftMenuJihua"
                            class="list-group-item ">计划详情</a>
                         <a href="#" id="leftMenuLianxiren" class="list-group-item active">相关联系人</a>
-                        <a href="{{url('/campaign/'.$campaign->id.'/organization')}}" id="leftMenuZuzhi"
-                           class="list-group-item">相关组织</a>
+                        <a href="edit_campaign_organization.html" id="leftMenuZuzhi" class="list-group-item">相关组织</a>
                         <a href="edit_campaign_opportunity.html" id="leftMenuJihui" class="list-group-item">相关机会</a>
                     </div>
                 </div>
@@ -103,7 +102,7 @@
                                     <button type="button" class="close" data-dismiss="modal"><span
                                                 aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                                     </button>
-                                    <h4 class="modal-title" id="myModalLabel">相关联系人</h4>
+                                    <h4 class="modal-title" id="myModalLabel">创建机会</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form method="post" action="#" role="form">
@@ -142,6 +141,7 @@
                                 </div>
                             </div>
                         </div>
+
                     </form>
                 </div>
             </div>

@@ -36,52 +36,67 @@
     <!-- /.container-fluid -->
 </nav>
 <div id="center">
-    <div class="container" id="jihua">
+    <div class="container" d="jihua">
         <div class="row">
             <div class="clo-xs-12 colsm-2 col-md-2 col-lg-2">
                 <div class="list-group" id="leftMenu">
                     <div class="leftMenu">
                         <a href="{{url('/campaign/'.$campaign->id.'/edit')}}" id="leftMenuJihua"
                            class="list-group-item ">计划详情</a>
-                        <a href="#" id="leftMenuLianxiren" class="list-group-item active">相关联系人</a>
-                        <a href="{{url('/campaign/'.$campaign->id.'/organization')}}" id="leftMenuZuzhi"
-                           class="list-group-item">相关组织</a>
-                        <a href="edit_campaign_opportunity.html" id="leftMenuJihui" class="list-group-item">相关机会</a>
+                        <a href="{{url('/campaign/'.$campaign->id.'/contact')}}" id="leftMenuLianxiren"
+                           class="list-group-item">相关联系人</a>
+                        <a href="#" id="leftMenuZuzhi" class="list-group-item  active">相关组织</a>
+                        <a href="create_campaign_opportunity.html" id="leftMenuJihui" class="list-group-item">相关机会</a>
                     </div>
                 </div>
             </div>
-
-
-            <div class="clo-xs-12 col-sm-10 col-md-10 col-lg-10" id="panel2">
+            <div class="clo-xs-12 col-sm-10 col-md-10 col-lg-10" id="panel3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h2>相关联系人</h2>
-                        <button type="button" data-toggle="modal" data-target="#xuanzelianxirenModal"
-                                class="btn btn-default">选择联系人
+                        <h2>相关组织</h2>
+                        <button type="button" data-toggle="modal" data-target="#xuanzezuzhiModal"
+                                class="btn btn-default">选择组织
                         </button>
                     </div>
                     <div class="panel-body">
                         <table class="table table-bordered">
                             <tr>
-                                <th>姓名</th>
+                                <th>组织名称</th>
+                                <th>所在城市</th>
+                                <th>网站</th>
+                                <th>主要电话</th>
                                 <th>负责人</th>
-                                <th>标题</th>
-                                <th>邮件</th>
-                                <th>办公室电话</th>
-                                <th>所属企业</th>
                                 <th>操作</th>
                             </tr>
-
-                            @foreach($related_contacts as $contact)
+                            <tr>
+                                <td>华工</td>
+                                <td>广州</td>
+                                <td>http://www.scut.edu.cn/</td>
+                                <td>13570478286</td>
+                                <td>业务人员A</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-xs">删除</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>中大</td>
+                                <td>广州</td>
+                                <td>http://www.sysu.edu.cn/</td>
+                                <td>132139213921</td>
+                                <td>业务人员B</td>
+                                <td>
+                                    <button type="button" class="btn btn-default btn-xs">删除</button>
+                                </td>
+                            </tr>
+                            @foreach($related_organizations as $organization)
                                 <tr>
-                                    <td>{{$contact->full_name}}</td>
-                                    <td>{{$contact->assign_to}}</td>
-                                    <td>{{$contact->title}}</td>
-                                    <td>{{$contact->email}}</td>
-                                    <td>{{$contact->office_phone}}</td>
-                                    <td>{{$contact->address}}</td>
+                                    <td>{{$organization->organization_name}}</td>
+                                    <td>{{$organization->city}}</td>
+                                    <td>{{$organization->website}}</td>
+                                    <td>{{$organization->phone}}</td>
+                                    <td>{{$organization->assign_to}}</td>
                                     <td>
-                                        <form action="{{ URL('campaign/'.$campaign->id.'/delete_contact/'.$contact->id) }}"
+                                        <form action="{{ URL('campaign/'.$campaign->id.'/delete_organization/'.$organization->id) }}"
                                               method="POST"
                                               style="display: inline;">
                                             <input name="_method" type="hidden" value="DELETE">
@@ -93,17 +108,18 @@
                         </table>
                     </div>
                 </div>
+
                 <!-- 其他div 比如弹出窗等 -->
-                <div class="modal fade" id="xuanzelianxirenModal" tabindex="-1" role="dialog"
-                     aria-labelledby="myModalLabel" aria-hidden="true">
-                    <form method="POST" action="{{URL('campaign/'.$campaign->id.'/add_contact')}}" role="form">
+                <div class="modal fade" id="xuanzezuzhiModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <form method="POST" action="{{URL('campaign/'.$campaign->id.'/add_organization')}}" role="form">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="close" data-dismiss="modal"><span
                                                 aria-hidden="true">&times;</span><span class="sr-only">Close</span>
                                     </button>
-                                    <h4 class="modal-title" id="myModalLabel">相关联系人</h4>
+                                    <h4 class="modal-title" id="myModalLabel">相关组织</h4>
                                 </div>
                                 <div class="modal-body">
                                     <form method="post" action="#" role="form">
@@ -112,22 +128,24 @@
                                                 <th>
                                                     <input type="checkbox">
                                                 </th>
-                                                <th>联系人名称</th>
                                                 <th>组织名称</th>
-                                                <th>标题</th>
+                                                <th>所在城市</th>
+                                                <th>网站</th>
+                                                <th>电话</th>
                                                 <th>负责人</th>
                                             </tr>
 
-                                            @foreach($un_contacts as $contact)
+                                            @foreach($un_organizations as $organization)
                                                 <tr>
                                                     <td>
                                                         <input type="checkbox" name="checkbox[]" id="checkbox"
-                                                               value={{$contact->id}}>
+                                                               value={{$organization->id}}>
                                                     </td>
-                                                    <td>{{$contact->full_name}}</td>
-                                                    <td>{{$contact->address}}</td>
-                                                    <td>{{$contact->title}}</td>
-                                                    <td>{{$contact->assign_to}}</td>
+                                                    <td>{{$organization->organization_name}}</td>
+                                                    <td>{{$organization->city}}</td>
+                                                    <td>{{$organization->website}}</td>
+                                                    <td>{{$organization->phone}}</td>
+                                                    <td>{{$organization->assign_to}}</td>
                                                 </tr>
                                             @endforeach
                                         </table>
@@ -136,7 +154,6 @@
                                 <div class="modal-footer">
                                     <div class="form-btn-align">
                                         <button type="submit" class="btn btn-default">提交</button>
-                                        &nbsp;
                                         <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
                                     </div>
                                 </div>
@@ -147,6 +164,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <!-- center -->
 </body>

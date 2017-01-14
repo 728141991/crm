@@ -20,11 +20,16 @@ Route::resource('/organization','OrganizationController');
 Route::get('/contact/search','ContactController@search');
 Route::get('/contact/{id}/campaign','ContactController@list_campaign');
 Route::delete('/contact/{id}/delete_campaign/{id2}','ContactController@delete_campaign');
-Route::post('/contact/{id}/add_campaign/{id2}','ContactController@save_campaign');
+Route::post('/contact/{id}/add_campaign','ContactController@add_campaign');
 
 Route::get('/campaign/{id}/contact','CampaignController@list_contact');
 Route::delete('/campaign/{id}/delete_contact/{id2}','CampaignController@delete_contact');
-Route::post('/campaign/{id}/add_contact/{id2}','ContactController@add_contact');
+Route::post('/campaign/{id}/add_contact','CampaignController@add_contact');
+
+Route::get('/campaign/{id}/organization','CampaignController@list_organization');
+Route::delete('/campaign/{id}/delete_organization/{id2}','CampaignController@delete_organization');
+Route::post('/campaign/{id}/add_organization','CampaignController@add_organization');
+
 //额外添加的代码
 //Route::resource('/contact/{id}/product','ContactProductController');
 

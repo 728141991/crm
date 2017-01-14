@@ -53,6 +53,7 @@ class CampaignController extends Controller
         $campaign->status = $request->input('status');
         $campaign->budget =$request->input('budget');
         $campaign->value = $request->input('value');
+        $campaign->expected_revenue = $request->input('expected_revenue');
         $campaign->expected_close_data =$request->input('expected_close_data');
         $campaign->assign_to =Auth::id();
 
@@ -91,6 +92,7 @@ class CampaignController extends Controller
         $campaign->status = $request->input('status');
         $campaign->budget =$request->input('budget');
         $campaign->value = $request->input('value');
+        $campaign->expected_revenue = $request->input('expected_revenue');
         $campaign->expected_close_data =$request->input('expected_close_data');
         $campaign->assign_to =Auth::id();
         //时间函数？
@@ -134,8 +136,42 @@ class CampaignController extends Controller
         return Redirect::to('campaign/'.$id.'/contact');
     }
 
-    public function add_contact($id){
-        DB::insert();
+    public function add_contact(Request $request,$id){
+        $campaign_id = $id;
+        $checkboxes = $request->input('checkbox');
+        foreach ($checkboxes as $checkbox){
+            $contact_id = $checkbox;
+            DB::insert("INSERT INTO contact_campaigns (contact_id,campaign_id)
+             values (".$contact_id.",".$campaign_id.");");
+        }
         return Redirect::to('campaign/'.$id.'/contact');
+    }
+
+
+    public function list_organization($id)
+    {
+        $campaign = Campaign::find($id);
+        $related_organizations = $campaign->organizations()->get();
+        $un_organizations = DB::select("SELECT * FROM organizations
+              where id not in 
+              (SELECT organization_id from organization_campaigns where campaign_id =" . $id . ");");
+        return view('campaign/list_organization', ['campaign' => $campaign,'related_organizations' => $related_organizations, 'un_organizations' => $un_organizations]);
+    }
+    public function delete_organization($id,$id2)
+    {
+        DB::delete("DELETE FROM organization_campaigns
+              where campaign_id =" . $id . " and organization_id =".$id2.";");
+        return Redirect::to('campaign/'.$id.'/organization');
+    }
+
+    public function add_organization(Request $request,$id){
+        $campaign_id = $id;
+        $checkboxes = $request->input('checkbox');
+        foreach ($checkboxes as $checkbox){
+            $organization_id = $checkbox;
+            DB::insert("INSERT INTO organization_campaigns (organization_id,campaign_id)
+             values (".$organization_id.",".$campaign_id.");");
+        }
+        return Redirect::to('campaign/'.$id.'/organization');
     }
 }

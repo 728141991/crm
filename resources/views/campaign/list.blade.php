@@ -68,32 +68,7 @@
                                 <th>负责人</th>
                                 <th>操作</th>
                             </tr>
-                            <tr>
-                                <td>更便宜，更好用</td>
-                                <td>邮件</td>
-                                <td>完成</td>
-                                <td>0</td>
-                                <td>2016-12-30</td>
-                                <td>业务人员A</td>
-                                <td>
-                                    <button type="button" class="btn btn-default btn-xs edit_button">编辑</button>
-                                    &nbsp;
-                                    <button type="button" class="btn btn-default btn-xs">删除</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>新建计划2</td>
-                                <td>电话</td>
-                                <td>无</td>
-                                <td>启动</td>
-                                <td>2017-04-01</td>
-                                <td>业务人员B</td>
-                                <td>
-                                    <button type="button" class="btn btn-default btn-xs edit_button">编辑</button>
-                                    &nbsp;
-                                    <button type="button" class="btn btn-default btn-xs">删除</button>
-                                </td>
-                            </tr>
+
 
                             @foreach($campaigns as $campaign)
                                 <tr>
